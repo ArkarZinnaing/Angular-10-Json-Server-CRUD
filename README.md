@@ -4,12 +4,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Json server
 Running the application
-json-server db.json (in the folder "src/app/server")< /br>
+json-server db.json (in the folder "src/app/server")<br />
 Run with `json-server --watch db.json` 
 
 ## Remark
-Check text box validations < /br>
-Check Product name duplication
+* Check text box validations <br />
+* Check Product name duplication
 
 ## Development server
 
