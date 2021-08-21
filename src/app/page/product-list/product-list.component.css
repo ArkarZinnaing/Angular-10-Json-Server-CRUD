@@ -1,0 +1,10 @@
+.product-container{
+    background: white;
+    padding: 20px;
+    height: 65vh;
+    overflow: auto;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+}
+
+

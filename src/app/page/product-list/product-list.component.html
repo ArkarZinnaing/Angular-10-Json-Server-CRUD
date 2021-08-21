@@ -1,0 +1,119 @@
+<section>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-10 col-sm-6 col-6">
+                <h3>Product List</h3>
+            </div>
+            <div class="col-md-2 col-sm-6 col-6 ">
+                <button class="btn btn-success w-100" style="margin:0" [routerLink]="['add-product']">+ New
+                    Product</button>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-6">
+
+                <input type="search" class="search-input" [(ngModel)]="searchText" placeholder="Search products...">
+                <br><br>
+
+                <div *ngIf="_product_service.allProduct.length > 0 ; else nodata" class="product-container">
+
+                    <div class="card product-card"
+                        *ngFor="let product of _product_service.allProduct | filter:searchText">
+                        <div class="card-body" (click)="editProduct(product)">
+                            <h5>Product Name : <span style="font-weight: normal;">{{product.name}}</span></h5>
+                            <small class="text-secondary">
+                                <i class="fa fa-tags"></i>
+                                Product Price : {{product.price}}</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="card form-control">
+                    <div class="card-body">
+
+                        <div class="container">
+                            <form [formGroup]="form" (ngSubmit)="updateProduct()">
+
+                                <img src="assets/img/product.svg" class="logo">
+                                <h3 class="form-title">Manage Product</h3>
+
+
+                                <p>Product Name <span class="text-danger">*</span></p>
+                                <div>
+                                    <input type="text" placeholder="Name" class="form-control" formControlName="name"
+                                        ngModel="{{product_name}}"
+                                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f.name.errors.required">Product Name is required</div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <p>Product Price <span class="text-danger">*</span></p>
+                                <div>
+                                    <input type="number" placeholder="Price" class="form-control"
+                                        formControlName="price" ngModel="{{product_price}}"
+                                        [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+                                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                                        <div *ngIf="f.price.errors.required">Product Price is required</div>
+                                    </div>
+
+                                </div>
+                                <br>
+
+                                <!-- buttons -->
+                                <div class="rows float-right">
+                                    <button type="button" class="btn btn-light" (click)="resetForm()">
+                                        <i class="fa fa-times"></i> Cancel</button>
+
+                                    <button class="btn btn-danger" data-toggle="modal" type="button"
+                                        data-target="#confirm_modal" (click)="deleteProduct(product_id)"
+                                        [disabled]="btndisabled"><i class="fa fa-trash"></i> Delete</button>
+
+                                    <button type="submit" class="btn btn-success" [disabled]="btndisabled"><i
+                                            class="fa fa-save"></i> Save</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+            </div>
+
+            <div class="col-md-6">
+                <!-- Show no product -->
+                <ng-template #nodata>
+                    <div class="alert alert-info">
+                        <i class="fa fa-info-circle"></i> You have no product currently.
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading spinner -->
+    <ngx-spinner></ngx-spinner>
+
+    <app-alert-modal [paramMessage]="alert"></app-alert-modal>
+
+    <!-- Confirm modal -->
+    <app-confirm-modal [paramProduct]="{id:product_id}"></app-confirm-modal>
+</section>

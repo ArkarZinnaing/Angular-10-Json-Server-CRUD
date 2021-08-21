@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+.search-input{
+    background-image: url('./assets/img/search-icon.svg');
+    background-position: 13px 19px;
+    background-repeat: no-repeat;
+    padding: 15px 21px 17px 45px;
+    background-size: 18px;
+    background-color: #f3f3f3;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+}
+
+.btn{
+    margin:5px;
+}
+
+nav span{
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+    left: 12px;
+}
+
+
+.logo{
+    width: 30px;
+}
+
+.myflex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form-title{
+    display: inline-block;
+    position: relative;
+    top: 7px;
+    left: 12px;
+    padding-bottom: 25px;
+}
+
+.product-card{
+    background: #f9f9f9;
+    border: none;
+    border-left: 5px solid #ffc330;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    cursor: pointer;
+    box-shadow: 0;
+    transform: scale(1);
+}
+
+.product-card:hover{
+    transform: scale(1.02);
+ 
+}
+
+.product-card:active{
+    background-color: #ececec;
+}
+
+section{
+    margin-top: 80px;
+}

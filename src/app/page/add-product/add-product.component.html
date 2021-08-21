@@ -1,0 +1,56 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 mx-auto">
+                <div class="card form-control">
+                    <div class="card-body">
+
+                        <div class="container">
+                            <form [formGroup]="form" (ngSubmit)="createProduct()">
+
+                                <img src="assets/img/product.svg" class="logo">
+                                <h3 class="form-title">Add Product</h3>
+
+
+                                <p>Product Name <span class="text-danger">*</span></p>
+                                <div>
+                                    <input type="text" placeholder="Name" class="form-control" formControlName="name"
+                                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                        <div *ngIf="f.name.errors.required">Product Name is required</div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <p>Product Price <span class="text-danger">*</span></p>
+                                <div>
+                                    <input type="number" placeholder="Price" class="form-control"
+                                        formControlName="price"
+                                        [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+                                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                                        <div *ngIf="f.price.errors.required">Product Price is required</div>
+                                    </div>
+
+                                </div>
+                                <br>
+
+                                <!-- buttons -->
+                                <div class="rows float-right">
+                                    <button type="button" class="btn btn-light" [routerLink]="['/']">
+                                        <i class="fa fa-times"></i> Cancel</button>
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-save"></i>
+                                        Save</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Show alert modal (message box) -->
+    <app-alert-modal [paramMessage]="alert"></app-alert-modal>
+</section>
