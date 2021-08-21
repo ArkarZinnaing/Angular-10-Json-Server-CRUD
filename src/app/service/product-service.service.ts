@@ -71,7 +71,7 @@ export class ProductServiceService {
 
     // from manage-product (edit form)
     if (action == "edit") {
-
+    
       //remove existing data from manage-product
       let indexForId = this.allProduct.findIndex(x => x.id == InputId);
       this.allProduct.splice(indexForId, 1)

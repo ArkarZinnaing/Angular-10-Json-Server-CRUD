@@ -103,7 +103,7 @@ export class ProductListComponent implements OnInit {
     if (this.f.name.value != '' && this.f.price.value != '') {
 
       //check duplicate product name 
-      if (this._product_service.checkData(this.f.name.value, '', "edit")) {
+      if (this._product_service.checkData(this.f.name.value, this.product_id , "edit")) {
 
         this._product_service.updateProduct(data).subscribe(
           (result: Product) => {
@@ -111,6 +111,7 @@ export class ProductListComponent implements OnInit {
             this._shared.toastrService.success('Product updated successfully !', 'Product');
             // after submitted form reset
             this.resetForm();
+            this._product_service.getAllProduct();
 
           });
 

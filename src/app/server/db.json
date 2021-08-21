@@ -3,17 +3,17 @@
     {
       "id": 1,
       "name": "Mango",
-      "price": 22
+      "price": "2000"
     },
     {
       "id": 2,
       "name": "Apple",
-      "price": 300
+      "price": "3000"
     },
     {
       "id": 3,
-      "name": "aa",
-      "price": "300"
+      "name": "Orange",
+      "price": 5000
     }
   ]
 }
