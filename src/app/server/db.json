@@ -1,19 +1,19 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Mango",
-      "price": "2000"
+      "product_id": 1,
+      "product_name": "Mango",
+      "product_price": 3000
     },
     {
-      "id": 2,
-      "name": "Apple",
-      "price": "3000"
+      "product_id": 2,
+      "product_name": "Oranges",
+      "product_price": "2000"
     },
     {
-      "id": 3,
-      "name": "Orange",
-      "price": 5000
+      "product_id": 3,
+      "product_name": "Orange",
+      "product_price": 5000
     }
   ]
 }

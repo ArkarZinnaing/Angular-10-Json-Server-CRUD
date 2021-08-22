@@ -21,7 +21,7 @@ export class ProductServiceService {
    -----------------------------------------------------
  */
 
-  patch = this._shared.getApiServer() + "products/"
+  patch = this._shared.getApiServer() + "products"
 
   allProduct: Product[];
   productData: Product[];
@@ -56,7 +56,7 @@ export class ProductServiceService {
 
   //update product
   updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(this.patch + '/' + product.id, product, headerOption);
+    return this.http.put<Product>(this.patch + '/' + product.product_id, product, headerOption);
   }
 
   //delete product
@@ -73,14 +73,14 @@ export class ProductServiceService {
     if (action == "edit") {
     
       //remove existing data from manage-product
-      let indexForId = this.allProduct.findIndex(x => x.id == InputId);
+      let indexForId = this.allProduct.findIndex(x => x.product_id == InputId);
       this.allProduct.splice(indexForId, 1)
       this.allProduct.push()
 
     }
 
     //check product name is duplicate or not
-    let indexForProductName = this.allProduct.findIndex(x => x.name.toLowerCase().replace(/\s/g, "") == Inputname.toLowerCase().replace(/\s/g, ""));
+    let indexForProductName = this.allProduct.findIndex(x => x.product_name.toLowerCase().replace(/\s/g, "") == Inputname.toLowerCase().replace(/\s/g, ""));
 
 
     if (indexForProductName < 0) {  // data is not duplicate

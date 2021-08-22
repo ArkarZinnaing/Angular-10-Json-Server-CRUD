@@ -47,9 +47,9 @@ export class AddProductComponent implements OnInit {
 
     // delare data to send api
     let data = {
-      id: '',
-      name: this.f.name.value,
-      price: this.f.price.value,
+      product_id: '',
+      product_name: this.f.name.value,
+      product_price: this.f.price.value,
     }
 
 

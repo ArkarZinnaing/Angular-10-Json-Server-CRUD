@@ -73,9 +73,10 @@ export class ProductListComponent implements OnInit {
   }
 
   editProduct(product) {
-    this.product_id = product.id
-    this.product_name = product.name
-    this.product_price = product.price
+    this.product_id = product.product_id
+    this.product_name = product.product_name
+    this.product_price = product.product_price
+    console.table(product)
 
     this.btndisabled = false;
     this.form.controls['name'].enable();
@@ -95,9 +96,9 @@ export class ProductListComponent implements OnInit {
     }
 
     let data = {
-      id: this.product_id,
-      name: this.f.name.value,
-      price: this.f.price.value,
+      product_id: this.product_id,
+      product_name: this.f.name.value,
+      product_price: this.f.price.value,
     }
     // Check values are blank or not
     if (this.f.name.value != '' && this.f.price.value != '') {
