@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url: "http://localhost:3000/",
+  api_url: "https://kopwar.com.mm/webapp/api/new_api/index.php",
 };
 
 /*

@@ -23,6 +23,15 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
 
+
+    req = req.clone({ headers: req.headers.set('Content-Type', "application/json") });
+    req = req.clone({ headers: req.headers.set("Accept-Charset", "charset=utf-8") })
+    req = req.clone({ headers: req.headers.set("Access-Control-Allow-Origin", "*") })
+    req = req.clone({ headers: req.headers.set("X-Tenant-ID", "tenant_default") })
+    req = req.clone({ headers: req.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS") })
+    req = req.clone({ headers: req.headers.set("Access-Control-Allow-Headers", "Origin, Content-Type, X-Tenant-ID, Content-Type") })
+
+    req = req.clone({ headers: req.headers })
     req = req.clone({ body: req.body });
 
     console.log("Request Body", JSON.stringify(req.body))

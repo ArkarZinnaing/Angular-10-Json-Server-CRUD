@@ -1,0 +1,12 @@
+
+
+{
+    "/api": {
+      "target": "https://kopwar.com.mm/webapp/api/new_api/",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
