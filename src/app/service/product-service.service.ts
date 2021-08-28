@@ -4,10 +4,10 @@ import { Product } from 'src/app/modal/product.modal';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-//api header
-// const headerOption = {
-//   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-// };
+// api header
+const headerOption = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 
 @Injectable({
@@ -21,7 +21,7 @@ export class ProductServiceService {
    -----------------------------------------------------
  */
 
-  patch = this._shared.getApiServer()
+  patch = this._shared.getApiServer() + "products"
 
   allProduct: Product[];
   productData: Product[];
@@ -49,20 +49,20 @@ export class ProductServiceService {
   }
 
 
-  //add new product
-  createProduct(product: Product) {
-    return this.http.post<Product>(this.patch + "/api-create.php", product);
-  }
-
-  //update product
-  updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(this.patch + '/api-update.php' , product);
-  }
-
-  //delete product
-  deleteProduct(id) {
-    return this.http.delete(this.patch + '/api-delete.php' , id);
-  }
+    //delete contact
+    deleteProduct(id): Observable<Product> {
+      return this.http.delete<Product>(this.patch + '/' + id, headerOption);
+    }
+  
+    //add new contact
+    createProduct(product: Product) {
+      return this.http.post<Product>(this.patch, product, headerOption);
+    }
+  
+    //update contact
+    updateProduct(product: Product): Observable<Product> {
+      return this.http.put<Product>(this.patch + '/' + product.product_id, product, headerOption);
+    }
 
   //Check product name duplicate or not from api
   checkData(Inputname, InputId, action) {
