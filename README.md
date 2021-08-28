@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Json server
 Running the application
 json-server db.json (in the folder "src/app/server")<br />
-Run with `json-server --watch db.json` 
+Run with `json-server db.json --id product_id ` 
 
 ## Remark
 * Check text box validations <br />
